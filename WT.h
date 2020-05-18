@@ -11,14 +11,15 @@
 
 #define DEBUG_WT 0
 
-int convert[26] = {0,-1,1,-1,-1,-1,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,3,-1,-1,-1,-1,-1,-1};
+
 
 /******************************************************************************/
 /* STRUCTURES                                                                 */
 /******************************************************************************/
+
 typedef struct noeud {
-    struct noeud *fils[4];
-    char          tab[5];
+    struct noeud *fils[4]; // A = 0 / C = 1 / G = 2 / T = 3
+    char          term[5];
     } Noeud;
 
 
@@ -31,9 +32,9 @@ typedef struct noeud {
 /* Crée un nouveau noeud                                                      */
 Noeud *nouveauNoeud();
 /* Ajoute un mot dans l'arbre                                                 */
-void ajouteMotArbre(Noeud *racine,char *str);
+void ajouteMotArbre(Noeud *racine,char *str,int numSeq);
 /* Cherche un mot dans l'arbre                                                */
-int chercheMotArbre(Noeud *racine,char *str);
+int chercheMotArbre(Noeud *racine,char *str,int numSeq);
 
 
 
