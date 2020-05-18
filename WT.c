@@ -69,7 +69,6 @@ int chercheMotArbre(Noeud *racine,char *str,int numSeq)
 /******************************************************************************/
 void MotsSimilaires(Noeud *racine,char *str,int prof)
 {
-    int full[5] = {1,1,1,1,1};
     int convert[4] = {0,2,6,19};
     // si le noeud est nul, on quitte
     if(racine == NULL)
@@ -77,7 +76,7 @@ void MotsSimilaires(Noeud *racine,char *str,int prof)
     
 
     // si on est à la cinquième ligne de l'arbre et que le tableau lesSeq est "full" on présente le mot
-    if(prof == 5 ){
+    if(prof == 5 ){ // la fonction memcmp ne fonctionnant pas nous avons mis ce if très chargé 
         if(racine->lesSeq[0]==1 && racine->lesSeq[1]==1 && racine->lesSeq[2]==1 && racine->lesSeq[3]==1 && racine->lesSeq[4]==1){
             str[prof] = '\0';
             printf("- %s\n", str);
