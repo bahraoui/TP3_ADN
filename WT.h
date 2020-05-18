@@ -19,7 +19,7 @@
 
 typedef struct noeud {
     struct noeud *fils[4]; // A = 0 / C = 1 / G = 2 / T = 3
-    char          term[5];
+    char          lesSeq[5];
     } Noeud;
 
 
@@ -34,7 +34,7 @@ Noeud *nouveauNoeud();
 /* Ajoute un mot dans l'arbre                                                 */
 void ajouteMotArbre(Noeud *racine,char *str,int numSeq);
 /* Cherche un mot dans l'arbre                                                */
-int chercheMotArbre(Noeud *racine,char *str,int numSeq);
+int chercheMotArbre(Noeud *racine,char *str,int numSeq); // deprecated
 
 
 
