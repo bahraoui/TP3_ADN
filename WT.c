@@ -11,13 +11,13 @@
 /******************************************************************************/
 Noeud *nouveauNoeud()
 {
-    Noeud * n = (Noeud *) malloc(sizeof(Noeud));
+    Noeud *n = (Noeud *) malloc(sizeof(Noeud));
     int i;
 
-    for(i=0;i!=4;i++)
+    for(i = 0; i != 4; i++)
         n->fils[i] = NULL;
 
-    for(i=0;i!=5;i++)
+    for(i = 0 ; i != 5; i++)
         n->lesSeq[i] = 0;
 
     return n;
@@ -78,7 +78,7 @@ void MotsSimilaires(Noeud *racine,char *str,int prof)
         return;
 
     // si on est à la cinquième ligne de l'arbre et que le tableau lesSeq est "full" on présente le mot
-    if(prof == 5 && memcmp(full,racine->lesSeq,5*sizeof(int)) == 0){
+    if(prof == 5 && (memcmp(racine->lesSeq,full,5*sizeof(int)) == 0) ){
         str[prof] = '\0';
         printf("- %s\n", str);
         return;

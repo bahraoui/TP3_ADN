@@ -12,8 +12,22 @@ char seq[5][301]={
 "CCTGGGTTGATGTATAATTTTAGTACGGGAGACGTGTGTGTTCGCGCCGCAAGAAGGTCTCTGCAAAAAACCTGTCTCTTCTACACACTGGAAAGTGAAGGGTGAGCGGCGGACATAGGTGTGTCTTGCCTATACGACAGGCGGTTTTGGAACATGCGGCCCCATGTAGCCTGGCCCACAGCCTTTAAAATGGCTTAGCAAAAATGGTACGGCCCTGCCTGAAGTTCGGAGGAGTACCGCCGGGTCGATTTGTGATGTGGTTTCGGGTGTACTTGTGTCAATTGGATTCCGCGAAACCCA"
 };
 
+    char str[10];
+    char strTemp[5];
+
     // creation de l'arbre
-    Noeud * racine = nouveauNoeud();
+    Noeud *racine = nouveauNoeud();
     
+    for(int laSeq = 0; laSeq != 5; laSeq++){
+        for(int base=0; base != 296; base++){
+            for(int i = 0; i != 5; i++){
+                strTemp[i] = (char)seq[laSeq][base + i];
+            }
+            ajouteMotArbre(racine, strTemp, laSeq);
+        }
+    }
+
+    MotsSimilaires(racine,str,0);    
+
     return 0;
 }
