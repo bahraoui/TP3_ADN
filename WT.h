@@ -19,7 +19,7 @@
 
 typedef struct noeud {
     struct noeud *fils[4]; // A = 0 / C = 1 / G = 2 / T = 3
-    char          lesSeq[5];
+    int          lesSeq[5];
     } Noeud;
 
 
