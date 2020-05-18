@@ -73,18 +73,20 @@ void MotsSimilaires(Noeud *racine,char *str,int prof)
     int full[5] = {1,1,1,1,1};
     int convert[4] = {0,2,6,19};
 
+    // si le noeud est nul, on quitte
     if(racine == NULL)
         return;
 
+    // si on est à la cinquième ligne de l'arbre et que le tableau lesSeq est "full" on présente le mot
     if(prof == 5 && memcmp(full,racine->lesSeq,5*sizeof(int)) == 0){
         str[prof] = '\0';
         printf("- %s\n", str);
         return;
     }
 
-    for(int i=0; i<4; i++){
-        str[prof] = convert[i]+ 'A';
-        MotsSimilaires(racine->fils[i], str, prof+1);
+    for(int seq = 0; seq<4; seq++){
+        str[prof] = convert[seq] + 'A';
+        MotsSimilaires(racine->fils[seq], str, prof+1);
     }
 }
 
