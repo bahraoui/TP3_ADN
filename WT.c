@@ -84,7 +84,7 @@ void MotsSimilaires(Noeud *racine,char *str,int prof)
 
     for(int i=0; i<4; i++){
         str[prof] = convert[i]+ 'A';
-        motCommun(racine->fils[i], str, prof+1);
+        MotsSimilaires(racine->fils[i], str, prof+1);
     }
 }
 
