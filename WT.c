@@ -28,7 +28,7 @@ Noeud *nouveauNoeud()
 /******************************************************************************/
 void ajouteMotArbre(Noeud *racine,char *str)
 {
-    int x =0;
+    int x = 0;
     Noeud *courant = racine;
     while (str[x] != '\0'){
         int indice = str[x] - 'a';
