@@ -1,39 +1,33 @@
 /******************************************************************************/
-/* WT.H                                                                       */
+/* LISTES CHAINEES                                                            */
 /******************************************************************************/
 
-#ifndef WT_H
-#define WT_H
+#ifndef LC_H
+#define LC_H
 
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
-
-#define DEBUG_WT 0
-
-
 
 /******************************************************************************/
 /* STRUCTURES                                                                 */
 /******************************************************************************/
-typedef struct noeud {
-    struct noeud *fils[4];
-    int          tab[5];
-    } Noeud;
-
-
-
+typedef struct cellule {
+    char *mot;
+    struct cellule * suiv;
+    } Cellule;
 
 
 /******************************************************************************/
 /* PROTOTYPES                                                                 */
 /******************************************************************************/
-/* Crée un nouveau noeud                                                      */
-Noeud *nouveauNoeud();
-/* Ajoute un mot dans l'arbre                                                 */
-void ajouteMotArbre(Noeud *racine,char *str);
-/* Cherche un mot dans l'arbre                                                */
-int chercheMotArbre(Noeud *racine,char *str);
+Cellule *nouvelleCellule(char *mot);
+Cellule *ajouteEnTeteLC(Cellule *l, char *mot);
+void afficheLC(Cellule *l);
+int  chercheMotLC(Cellule *l, char *mot); // renvoie le nb de comparaisons, <=0 si pas trouvé
+
+
+
 
 
 

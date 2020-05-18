@@ -18,7 +18,7 @@
 /******************************************************************************/
 typedef struct noeud {
     struct noeud *fils[4];
-    int          tab[5];
+    char          term;
     } Noeud;
 
 

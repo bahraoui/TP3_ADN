@@ -1,25 +1,19 @@
 /******************************************************************************/
-/* WT.H                                                                       */
+/*                                                                            */
 /******************************************************************************/
 
-#ifndef WT_H
-#define WT_H
+#ifndef SCRABBLE_H
+#define SCRABBLE_H
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
+#include <stdlib.h>
 
-#define DEBUG_WT 0
-
-
+#define NBL 100 // 100 lettres au scrabble (sans joker)
 
 /******************************************************************************/
 /* STRUCTURES                                                                 */
 /******************************************************************************/
-typedef struct noeud {
-    struct noeud *fils[4];
-    int          tab[5];
-    } Noeud;
 
 
 
@@ -28,12 +22,14 @@ typedef struct noeud {
 /******************************************************************************/
 /* PROTOTYPES                                                                 */
 /******************************************************************************/
-/* Crée un nouveau noeud                                                      */
-Noeud *nouveauNoeud();
-/* Ajoute un mot dans l'arbre                                                 */
-void ajouteMotArbre(Noeud *racine,char *str);
-/* Cherche un mot dans l'arbre                                                */
-int chercheMotArbre(Noeud *racine,char *str);
+
+/* Tire une main aléatoire, sans repioche                                     */
+void main_aleatoire(char *main_alea, int len);
+
+
+
+
+
 
 
 

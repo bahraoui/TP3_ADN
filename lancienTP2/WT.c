@@ -14,11 +14,9 @@ Noeud *nouveauNoeud()
     Noeud * n = (Noeud *) malloc(sizeof(Noeud));
     int i;
 
-    for(i=0;i!=4;i++)
+    for(i=0;i!=26;i++)
         n->fils[i] = NULL;
-        
-    for(i=0;i!=5;i++)
-        n->tab[i] = NULL;
+    n->term = 0;
 
     return n;
 }
