@@ -35,6 +35,8 @@ Noeud *nouveauNoeud();
 void ajouteMotArbre(Noeud *racine,char *str,int numSeq);
 /* Cherche un mot dans l'arbre                                                */
 int chercheMotArbre(Noeud *racine,char *str,int numSeq); // deprecated
+/* Trouve des mots similaires aux sequences                                   */
+void MotsSimilaires(Noeud *racine,char *str,int prof)
 
 
 

@@ -68,7 +68,7 @@ int chercheMotArbre(Noeud *racine,char *str,int numSeq)
 /******************************************************************************/
 /* MotsSimilaires                                                             */
 /******************************************************************************/
-int MotsSimilaires(Noeud *racine,char *str,int prof)
+void MotsSimilaires(Noeud *racine,char *str,int prof)
 {
     int full[5] = {1,1,1,1,1};
     int convert[4] = {0,2,6,19};
@@ -84,7 +84,7 @@ int MotsSimilaires(Noeud *racine,char *str,int prof)
 
     for(int i=0; i<4; i++){
         str[prof] = convert[i]+ 'A';
-        motCommun(racine->fils[i], prof+1, mot);
+        motCommun(racine->fils[i], str, prof+1);
     }
 }
 
