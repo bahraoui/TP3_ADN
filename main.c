@@ -15,21 +15,29 @@ char seq[5][301]={
 "CCTGGGTTGATGTATAATTTTAGTACGGGAGACGTGTGTGTTCGCGCCGCAAGAAGGTCTCTGCAAAAAACCTGTCTCTTCTACACACTGGAAAGTGAAGGGTGAGCGGCGGACATAGGTGTGTCTTGCCTATACGACAGGCGGTTTTGGAACATGCGGCCCCATGTAGCCTGGCCCACAGCCTTTAAAATGGCTTAGCAAAAATGGTACGGCCCTGCCTGAAGTTCGGAGGAGTACCGCCGGGTCGATTTGTGATGTGGTTTCGGGTGTACTTGTGTCAATTGGATTCCGCGAAACCCA"
 };
     char str[20];
-    char strTemp[5];
+    char strTemp[310];
 
     // creation de l'arbre
     Noeud * racine = nouveauNoeud();
     
+    // parcours des 5 séquences
     for(int laSeq = 0; laSeq != 5; laSeq++){
-        for(int base=0; base != 296; base++){
-            for(int i = 0; i != 5; i++){
-                strTemp[i] = (char)seq[laSeq][base + i];
+        // parcours par caractère par suffixe (en "enlevant" un caractère préfixe à chaque fois) des séquences
+        for(int base=301; base != 0; base--){
+            // parcours du mot à ajouter
+            for(int i = 0; i != base; i++){
+                strTemp[i] = (char)seq[laSeq][i];
             }
+            strTemp[base+1]='\0';
             ajouteMotArbre(racine, strTemp, laSeq);
         }
     }
 
-    MotsSimilaires(racine,str,0);    
+    //test defi 2
+    for (int i = 0; i != 5; i++)
+    {
+        MotsSimilaires(racine,str,0,i);
+    }    
 
     return 0;
 }
