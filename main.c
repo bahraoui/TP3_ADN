@@ -23,21 +23,19 @@ char seq[5][301]={
     // parcours des 5 séquences
     for(int laSeq = 0; laSeq != 5; laSeq++){
         // parcours par caractère par suffixe (en "enlevant" un caractère préfixe à chaque fois) des séquences
-        for(int base=301; base != 0; base--){
+        for(int base=0; base != 301; base++){
             // parcours du mot à ajouter
-            for(int i = 0; i != base; i++){
-                strTemp[i] = (char)seq[laSeq][i];
+            for(int i = 0; i != 301 - base; i++){
+                strTemp[i] = (char)seq[laSeq][base  + i];
             }
-            strTemp[base+1]='\0';
+            strTemp[301 - base  + 1]='\0';
             ajouteMotArbre(racine, strTemp, laSeq);
         }
     }
 
-    //test defi 2
-    for (int i = 0; i != 5; i++)
-    {
-        MotsSimilaires(racine,str,0,i);
-    }    
+    int a = MotsSimilaires(racine,str,0);
+
+    printf("%d\n",a);
 
     return 0;
 }
